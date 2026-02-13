@@ -1,0 +1,80 @@
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7f6; /* Adjust to match your Login background */
+}
+
+.home-form, .success-card {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.home-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.input-grid input, .input-grid textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.input-grid textarea {
+  height: 80px;
+  resize: none;
+}
+
+.file-upload-section {
+  margin-bottom: 20px;
+}
+
+.custom-file-upload {
+  display: block;
+  padding: 15px;
+  border: 2px dashed #007bff;
+  background: #f0f7ff;
+  color: #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.custom-file-upload:hover {
+  background: #e0eeff;
+}
+
+#pdf-upload {
+  display: none;
+}
+
+.home-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.home-btn:hover {
+  background-color: #0056b3;
+}

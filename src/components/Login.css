@@ -1,0 +1,32 @@
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #121212;
+}
+.login-form {
+  background: #1e1e1e;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 320px;
+}
+.login-form h2 {
+  color: rgba(255, 255, 255, 0.745);}
+.login-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background: #252525;
+  color: white;
+}
+.login-form button {
+  padding: 10px;
+  background: #646cff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
