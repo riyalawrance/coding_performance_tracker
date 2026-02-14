@@ -101,9 +101,24 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## 📸 Screenshots
 
-1. **Login Page**: Sleek dark-themed entry point for users.
-2. **Home/Upload**: Intuitive "Click to Upload" zone that removes messy browser-default inputs.
-3. **Report Card**: Circular score gauge and side-by-side feedback columns for easy readability.
+### 1. Login Page
+Sleek dark-themed entry point for users.
+
+![Login Page](media/login.png)
+
+---
+
+### 2. Home / Upload
+Intuitive "Click to Upload" zone that removes messy browser-default inputs.
+
+![Upload Page](media/upload.png)
+
+---
+
+### 3. Report Card
+Circular score gauge and side-by-side feedback columns for easy readability.
+
+![Report Card](media/performance.png)
 
 ## 🎥 Demo Video
 
