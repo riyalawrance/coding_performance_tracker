@@ -107,7 +107,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## 🎥 Demo Video
 
-[Click here to watch the working prototype](media/my-react-app - Google Chrome 2026-02-14 06-42-16.mp4)
+[Click to watch demo](media/demo.mp4)
 
 
 ## 📄 License
