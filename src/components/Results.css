@@ -1,0 +1,218 @@
+/* Container to center everything on the screen */
+.results-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Allows scrolling if content is long */
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at top right, #1e1e2e, #121212);
+  padding: 60px 20px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Main width controller */
+.results-container {
+  width: 100%;
+  max-width: 1000px; /* Wide enough for reports, but keeps text readable */
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.results-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #fff, #646cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+/* Question Cards Layout */
+.question-card {
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.question-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: block;
+}
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  background: #1a1a1a;
+  color: #eee;
+  border: 1px solid #333;
+  padding: 15px;
+  border-radius: 12px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+/* Performance Report Card */
+.report-card {
+  background: #1e1e1e;
+  padding: 50px;
+  border-radius: 24px;
+  width: 100%;
+  border: 1px solid rgba(100, 108, 255, 0.3);
+  box-shadow: 0 0 50px rgba(100, 108, 255, 0.1);
+  box-sizing: border-box;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.report-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Circular Score Gauge */
+.score-ring {
+  width: 140px;
+  height: 140px;
+  border: 6px solid #646cff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  background: rgba(100, 108, 255, 0.05);
+  box-shadow: 0 0 20px rgba(100, 108, 255, 0.2);
+}
+
+.big-score {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.small-total {
+  color: #646cff;
+  font-weight: 600;
+}
+
+/* Two-column Feedback Grid */
+.report-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.report-col {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #333;
+}
+
+.report-col h4 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.strengths h4 { color: #2ecc71; }
+.improvements h4 { color: #f1c40f; }
+
+.report-col ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.report-col li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+/* Buttons */
+.submit-all-btn {
+  background: linear-gradient(135deg, #646cff, #4b51c8);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(100, 108, 255, 0.2);
+}
+
+.submit-all-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(100, 108, 255, 0.4);
+}
+
+.advice-btn-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.edit-btn, .new-sim-btn {
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background: #333;
+  color: white;
+  border: 1px solid #444;
+}
+
+.new-sim-btn {
+  background: #646cff;
+  color: white;
+  border: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .report-grid {
+    grid-template-columns: 1fr;
+  }
+  .report-card {
+    padding: 25px;
+  }
+}

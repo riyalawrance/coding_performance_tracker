@@ -3,78 +3,106 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f4f7f6; /* Adjust to match your Login background */
+  background: radial-gradient(circle at top right, #1e1e2e, #121212); /* Match Login */
+  font-family: 'Inter', sans-serif;
+  color: white;
 }
 
 .home-form, .success-card {
-  background: white;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(12px);
   padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   width: 100%;
   max-width: 500px;
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .home-form h2 {
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 25px;
+  color: #fff;
+  font-weight: 600;
 }
 
 .input-grid {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 18px;
+  margin-bottom: 25px;
 }
 
 .input-grid input, .input-grid textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 14px;
+  background: #252525;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  transition: border-color 0.3s;
 }
 
-.input-grid textarea {
-  height: 80px;
-  resize: none;
-}
-
-.file-upload-section {
-  margin-bottom: 20px;
-}
-
-.custom-file-upload {
-  display: block;
-  padding: 15px;
-  border: 2px dashed #007bff;
-  background: #f0f7ff;
-  color: #007bff;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.custom-file-upload:hover {
-  background: #e0eeff;
+.input-grid input:focus, .input-grid textarea:focus {
+  outline: none;
+  border-color: #646cff;
 }
 
 #pdf-upload {
-  display: none;
+  display: none; /* This removes the "Choose File" text */
+}
+
+.custom-file-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  border: 2px dashed #646cff;
+  background: rgba(100, 108, 255, 0.05);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.home-btn {
+  background: linear-gradient(135deg, #646cff, #4b51c8);
+  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.3);
+  border: none;
 }
 
 .home-btn {
   width: 100%;
-  padding: 12px;
-  background-color: #007bff;
+  padding: 14px;
+  background: linear-gradient(135deg, #646cff, #4b51c8); /* Modern Indigo Gradient */
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.3);
+  transition: all 0.3s ease;
 }
 
 .home-btn:hover {
-  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(100, 108, 255, 0.4);
+  filter: brightness(1.1);
+}
+
+/* .custom-file-upload {
+  display: block;
+  padding: 20px;
+  border: 2px dashed #444;
+  background: rgba(255, 255, 255, 0.03);
+  color: #aaa;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+} */
+
+.custom-file-upload:hover {
+  border-color: #646cff;
+  color: #fff;
+  background: rgba(100, 108, 255, 0.05);
 }

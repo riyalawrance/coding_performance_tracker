@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
   const [jobDetails, setJobDetails] = useState({
-    title: '',
-    company: '',
-    location: '',
-    description: ''
+    title: '', company: '', location: '', description: ''
   });
   const [pdfFile, setPdfFile] = useState(null);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setJobDetails({ ...jobDetails, [e.target.name]: e.target.value });
@@ -24,32 +23,41 @@ const Home = () => {
     }
   };
 
-  const handleProcess = (e) => {
+  const handleProcess = async (e) => {
     e.preventDefault();
-    // Simulate processing
-    console.log("Job Columns:", jobDetails);
-    console.log("Uploaded PDF:", pdfFile?.name);
-    setIsSuccess(true);
-  };
+    setLoading(true);
 
-  if (isSuccess) {
-    return (
-      <div className="home-wrapper">
-        <div className="success-card">
-          <h2>✅ Details Saved</h2>
-          <p><strong>Job:</strong> {jobDetails.title} at {jobDetails.company}</p>
-          <p><strong>File:</strong> {pdfFile?.name}</p>
-          <button className="home-btn" onClick={() => setIsSuccess(false)}>Edit Details</button>
-        </div>
-      </div>
-    );
-  }
+    const formData = new FormData();
+    formData.append('file', pdfFile);
+    // You can also append job details if you want Groq to use them
+    formData.append('title', jobDetails.title);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/analyze', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Navigate to results page and pass the questions via state
+        navigate('/results', { state: { questions: data.questions, job: jobDetails } });
+      } else {
+        alert("Analysis failed.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error connecting to server.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="home-wrapper">
       <form className="home-form" onSubmit={handleProcess}>
         <h2>Update Job Simulator</h2>
-        
         <div className="input-grid">
           <input name="title" placeholder="Job Title" onChange={handleChange} required />
           <input name="company" placeholder="Company Name" onChange={handleChange} required />
@@ -58,13 +66,19 @@ const Home = () => {
         </div>
 
         <div className="file-upload-section">
+          <input type="file" 
+          id="pdf-upload" 
+          accept=".pdf" 
+          onChange={handleFileChange} 
+          required />
           <label htmlFor="pdf-upload" className="custom-file-upload">
-            {pdfFile ? `📄 ${pdfFile.name}` : "Upload Job PDF"}
+            {pdfFile ? `📄 ${pdfFile.name}` : "Click to Upload Job PDF"}
           </label>
-          <input id="pdf-upload" type="file" accept=".pdf" onChange={handleFileChange} required />
         </div>
 
-        <button type="submit" className="home-btn">Update Simulator</button>
+        <button type="submit" className="home-btn" disabled={loading}>
+          {loading ? "Analyzing with AI..." : "Generate Questions"}
+        </button>
       </form>
     </div>
   );
